@@ -1,0 +1,60 @@
+@echo off
+color 4
+chcp 65001 >nul
+title Speciality Made by notdenisxd
+set /p pass="Enter password: "
+if "%pass%" NEQ "ebola" exit
+
+:menu
+echo   *******************
+echo         Menu
+echo   *******************
+echo.
+echo 1) List Users on computer
+echo 2) Create a New User
+echo 3) Change a User password
+echo 4) Delete a User
+echo 5) Exit
+echo.
+set /p input=">> "
+
+if "%input%" EQU "1" (
+    title List Users
+    cls
+    net user
+    pause
+    cls
+    goto menu
+)
+
+if "%input%" EQU "2" (
+    title Create a new User
+    cls
+    set /p username="USERNAME: "
+    set /p password="PASSWORD: "
+    net user %username% %password% /add
+    pause
+    cls
+    goto menu
+)
+
+if "%input%" EQU "3" (
+    title Change a User's Password
+    cls
+    set /p username="TARGET USER: "
+    set /p password="NEW PASSWORD: "
+    net user %username% %password%
+    pause
+    cls
+    goto menu
+)
+
+if "%input%" EQU "4" (
+    cls
+    echo You have no morals and are messed up for trying to do this
+    pause
+    cls
+    goto menu
+)
+
+if "%input%" EQU "5" exit
